@@ -21,8 +21,9 @@
           <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">View navbar docs &raquo;</a>
         </p>
       </div> -->
-
-      {% include 'login.html' %}
+      {% if login %}
+        {% include 'login.html' %}
+      {% endif %}
     </div> <!-- /container -->
 
     <footer class="footer">

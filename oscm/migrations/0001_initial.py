@@ -11,14 +11,12 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='SignUp',
+            name='Login',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('userName', models.CharField(max_length=40)),
-                ('f_name', models.CharField(max_length=40)),
-                ('l_name', models.CharField(max_length=40)),
-                ('pwd', models.CharField(max_length=40)),
-                ('email', models.EmailField(max_length=254)),
+                ('userName', models.CharField(max_length=40, serialize=False, primary_key=True)),
+                ('password', models.CharField(max_length=40)),
+                ('role', models.CharField(max_length=40, choices=[(b'Admin', b'Admin'), (b'SuperUser', b'Super User'), (b'User', b'User')])),
+                ('lastLogin', models.DateTimeField()),
             ],
         ),
     ]
