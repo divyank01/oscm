@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Login
+from .models import Login, User
 
 #this will only represent fields from signupmodel later on this will be passed to view thn to template
 class SignUpForm(forms.ModelForm):
@@ -57,3 +57,12 @@ class LoginForm(forms.Form):
 		userName = self.cleaned_data.get("userName")
 		return userName
 		#model.role.choices[0]="select"
+
+class CreateUserForm(forms.Form):
+	userName=forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'UserName'}))
+	password=forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}))
+	firstName=forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'FirstName'}))
+	lastName=forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'LastName'}))
+	email=forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Email','type':'email'}))
+	roles=(('admin',"Admin"),('super_user',"Super User"),('user',"User"))
+	role=forms.ChoiceField(choices=roles,widget=forms.Select(attrs={'class': 'form-control', 'placeholder': 'Role'}))

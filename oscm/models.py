@@ -12,15 +12,15 @@ class Login(models.Model):
 	def __unicode__(self):
 		return self.userName
 
-# class User(models.Model):
-# 	userName = models.CharField(max_length=40, blank=False, null=False)
-# 	firstName = models.CharField(max_length=40, blank=False, null=False)
-# 	lastName = models.CharField(max_length=40, blank=False, null=False)
-# 	email = models.EmailField()
-# 	roles=(('admin',"Admin"),('s_user',"Super User"),('user',"User"))
-# 	role = models.CharField(max_length=40, choices=roles, blank=False, null=False)
-# 	def __unicode__(self):
-# 		return self.userName
+class User(models.Model):
+	login=models.OneToOneField(Login,primary_key=True)
+	firstName = models.CharField(max_length=40, blank=False, null=False)
+	lastName = models.CharField(max_length=40, blank=False, null=False)
+	email = models.EmailField()
+	roles=(('admin',"Admin"),('s_user',"Super User"),('user',"User"))
+	role = models.CharField(max_length=40, choices=roles, blank=False, null=False)
+	def __unicode__(self):
+		return self.userName
 
 # class AbuseDetails(models.Model):
 # 	physicalAbuse = models.CharField(max_length=400, choices=Dropdowns.AbuseDetails.abusedBy, blank=False, null=False)
