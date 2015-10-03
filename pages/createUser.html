@@ -1,0 +1,13 @@
+{% extends 'home.html' %}
+
+{% block createUser %}
+	<form>
+		<div align="center" class="center">
+		<h2>Please enter user details</h2><br/>
+		<table class="custom_new_user" cellpadding="10px">
+			{{form}}
+		</table><br/>
+		<button class="btn btn-lg btn-primary btn-block custom_new_user_btn" type="submit">Create</button>
+		</div>		
+	</form>
+{% endblock %}

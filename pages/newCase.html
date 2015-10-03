@@ -1,0 +1,96 @@
+{% extends 'home.html' %}
+{% block newCase %}
+	<h3>Capture following details</h3><br/>
+	<ul class="nav nav-tabs" role="tablist" id="case_tabs">
+        <li role="presentation" class="active"><a href="#">Personal info</a></li>
+        <li role="presentation"><a href="#">Childhood info</a></li>
+        <li role="presentation"><a href="#">Family info</a></li>
+        <li role="presentation"><a href="#">Youth info</a></li>
+        <li role="presentation"><a href="#">Employment info</a></li>
+        <li role="presentation"><a href="#">Educational info</a></li>
+        <li role="presentation"><a href="#">Medical info</a></li>
+        <li role="presentation"><a href="#">Social info</a></li>
+    </ul><br/>
+
+    <div>
+    <div id="personal_info" class="row">
+		<div class="col-md-6 mod_ul">
+			{{form.personal1}}
+		</div>
+		<div class="col-md-6 mod_ul">
+			{{form.personal2}}
+		</div>
+	</div>
+	    
+	<div id="childhood_info">
+		<div class="col-md-6 mod_ul ">
+			
+		</div>
+		<div class="col-md-6 mod_ul">
+			
+		</div>
+	</div>    
+
+	<!-- 
+	<div id="family_info">
+		<div class="custom_new_case_div">
+			{{form}}
+		</div>
+		<div class="custom_new_case_div right">
+			{{form}}
+		</div>
+	</div>    
+
+
+	<div id="youth_info">
+		<div class="custom_new_case_div">
+			{{form}}
+		</div>
+		<div class="custom_new_case_div right">
+			{{form}}
+		</div>
+	</div>    
+
+
+	<div id="emp_info">
+		<div class="custom_new_case_div">
+			{{form}}
+		</div>
+		<div class="custom_new_case_div right">
+			{{form}}
+		</div>
+	</div>    
+
+
+	<div id="edu_info">
+		<div class="custom_new_case_div">
+			{{form}}
+		</div>
+		<div class="custom_new_case_div right">
+			{{form}}
+		</div>
+	</div>    
+
+
+	<div id="med_info">
+		<div class="custom_new_case_div">
+			{{form}}
+		</div>
+		<div class="custom_new_case_div right">
+			{{form}}
+		</div>
+	</div>
+
+
+	<div id="social_info">
+		<div class="custom_new_case_div">
+			{{form}}
+		</div>
+		<div class="custom_new_case_div right">
+			{{form}}
+		</div>
+	</div> -->
+	<div align="center" class="button_container"><button class="btn btn-lg btn-primary btn-block custom_new_user_btn" type="submit">Submit</button></div>
+	</div>
+	
+{% endblock %}
