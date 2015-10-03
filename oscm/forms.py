@@ -1,6 +1,8 @@
 from django import forms
 
-from .models import Login, User
+from .models import Login, User, Case
+
+from .constants import Dropdowns
 
 #this will only represent fields from signupmodel later on this will be passed to view thn to template
 class SignUpForm(forms.ModelForm):
@@ -66,3 +68,28 @@ class CreateUserForm(forms.Form):
 	email=forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Email','type':'email'}))
 	roles=(('admin',"Admin"),('super_user',"Super User"),('user',"User"))
 	role=forms.ChoiceField(choices=roles,widget=forms.Select(attrs={'class': 'form-control', 'placeholder': 'Role'}))
+
+class CaseForm(forms.Form):
+	class PersonalInfo(forms.Form):
+		name=forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Name'}))
+		sexes=(('Male','Male'),('Female','Female'))
+		#sex=forms.CharField(widget=forms.RadioSelect(attrs={'class': 'form-control','style':'height:auto'},choices=sexes))
+		sex=forms.CharField(widget=forms.RadioSelect(attrs={'class': ''},choices=sexes))
+		current_age=forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'UserName'}))
+		age_at_addmission=forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'UserName'}))
+		case=forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'UserName'}))
+		religion=forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'UserName'}))
+		residential_status=forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'UserName'}))
+		district=forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'UserName'}))
+		state=forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'UserName'}))
+		residential_details=forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'UserName'}))
+		who_brought_child_to_childeren_welfare_commity=forms.CharField(widget=forms.Select(attrs={'class': 'form-control','style':'height:auto'},choices=Dropdowns.PersonalDetails.bringer_to_welfare))
+		reasons_for_leaving_family=forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'UserName'}))
+		misbehaviour_against_child=forms.CharField(widget=forms.CheckboxSelectMultiple(choices=Dropdowns.PersonalDetails.misbehaviours))
+	class PersonalInfo2(forms.Form):
+		types_of_abuses=forms.CharField(widget=forms.CheckboxSelectMultiple(choices=Dropdowns.PersonalDetails.abuses))
+		child_abuse=forms.CharField(widget=forms.CheckboxSelectMultiple(choices=Dropdowns.PersonalDetails.child_abuse))
+		suffering_for_diseases_or_disorders=forms.CharField(widget=forms.CheckboxSelectMultiple(choices=Dropdowns.PersonalDetails.diseases))
+		before_addmission_living_with=forms.CharField(widget=forms.Select(attrs={'class': 'form-control'},choices=Dropdowns.PersonalDetails.living_with))
+	personal1=PersonalInfo()
+	personal2=PersonalInfo2()

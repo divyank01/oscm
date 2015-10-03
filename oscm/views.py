@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Login
-from .forms import LoginForm, CreateUserForm
+from .forms import LoginForm, CreateUserForm, CaseForm
 import formFormatter as formatter
 def SignIn(request):
 	title="OSCM|Login"
@@ -50,7 +50,7 @@ def CreateCase(request):
 	title="OSCM|New user"
 	template="newCase.html"
 	#title = "welcome %s" %(request.user)
-	form = CreateUserForm(request.POST or None)
+	form = CaseForm(request.POST or None)
 	print form.errors
 	context = {
 		"heading" : title,
