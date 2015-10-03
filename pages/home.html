@@ -1,4 +1,33 @@
-<form method="POST">{% csrf_token %}
-<table>{{form.as_table}}</table>
-<input type="submit" value="Submit">
-</form>
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block head %}
+	<link href="{% static 'css/navbar-static-top.css' %}" rel="stylesheet">
+	<link href="{% static 'css/dashboard.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="row">
+	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+	 {% if error %}
+	 <div class="alert alert-danger" role="alert">
+        <strong>Oh snap!</strong> Change a few things up and try submitting again.
+     </div>
+     {% endif %}
+     {% if success %}
+     <div class="alert alert-success" role="alert">
+        <strong>Well done!</strong> You successfully read this important alert message.
+     </div>
+     {% endif %}
+	 {% block navigations %}{% include "navigations.html" %}{% endblock %}
+	 {% block createUser %}{% endblock %}
+     {% block viewAllUser %}{% endblock %}
+     {% block editUser %}{% endblock %}
+     {% block newCase %}{% endblock %}
+     <footer class="footer col-md-6">
+      <div>
+        <p class="text-muted">Created By Divyank Sharma.</p>
+      </div>
+    </footer>
+     </div>
+     </div>
+{% endblock %}
